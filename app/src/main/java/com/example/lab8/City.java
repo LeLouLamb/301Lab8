@@ -2,7 +2,7 @@ package com.example.lab8;
 
 import java.util.Objects;
 
-public class City {
+public class City implements Comparable{
 
     private String city;
     private String province;
@@ -20,6 +20,41 @@ public class City {
         return this.province;
     }
 
+
+    /**
+     * Compares the current City object with another object for order based on the city name.
+     * This method provides a way to compare two City objects by comparing their city names
+     * lexicographically (alphabetical order). It is intended to be used in sorting operations
+     * (e.g., when adding City objects to a sorted collection or when using sorting algorithms).
+     *
+     * The method expects the provided object to be of type City. If the object is not of type City,
+     * a ClassCastException will be thrown. If the object is a valid City, the method compares the
+     * city name of this City object with the city name of the provided City object.
+     *
+     * <p> The comparison is done using the {@link String#compareTo(String)} method, which returns:
+     * <ul>
+     *   <li>A negative integer if this City's name is lexicographically less than the other City's name.</li>
+     *   <li>Zero if both City objects have the same name.</li>
+     *   <li>A positive integer if this City's name is lexicographically greater than the other City's name.</li>
+     * </ul>
+     *
+     * <p> Example:
+     * <pre>
+     *     City city1 = new City("New York");
+     *     City city2 = new City("Los Angeles");
+     *     int result = city1.compareTo(city2);  // result will be positive since "New York" is greater than "Los Angeles"
+     * </pre>
+     *
+     * @param o The object to be compared, which should be an instance of {@code City}.
+     * @return A negative integer, zero, or a positive integer depending on whether this City's name
+     *         is lexicographically less than, equal to, or greater than the city name of the provided City object.
+     * @throws ClassCastException if the specified object is not an instance of {@code City}.
+     */
+    @Override
+    public int compareTo(Object o) {
+        City city = (City) o;
+        return this.city.compareTo(city.getCityName()); // this.city refers to the city name
+    }
 
     /**
      * Compares this City object to another object for equality.
@@ -52,7 +87,7 @@ public class City {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         City city1 = (City) o;
-        return Objects.equals(city, city1.city) && Objects.equals(province, city1.province);
+        return Objects.equals(city, city1.getCityName()) && Objects.equals(province, city1.getProvinceName());
     }
 
     /**

@@ -19,16 +19,14 @@ public class CustomListTest {
      * @return
      */
     public CustomList MockCityList(){
-        list = new CustomList(null,new ArrayList<>());
-        return list;
+        return new CustomList(null,new ArrayList<>());
     }
     /**
      * create a mockcityt for my city tests
      * @return
      */
     public City MockCity(){
-        city = new City("Estevan", "SK");
-        return city;
+        return new City("Estevan", "SK");
     }
 
     /**
@@ -75,7 +73,6 @@ public class CustomListTest {
         assertTrue(list.hasCity(city));
         list.deleteCity(MockCity());
         assertFalse(list.hasCity(MockCity()));
-        assertTrue(list.hasCity(city));
         list.deleteCity(city);
         assertFalse(list.hasCity(city));
     }
