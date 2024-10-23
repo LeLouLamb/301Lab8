@@ -142,4 +142,24 @@ public class CustomList extends ArrayAdapter<City> {
         if (!cities.remove(city))
             throw new IllegalArgumentException("City could not be removed: " + city.getCityName());
     }
+    /**
+     * Returns the number of cities in the current list.
+     *
+     * This method provides the total count of City objects contained in the list of cities
+     * managed by this class. It can be used to determine how many City objects have been
+     * added to the list at any point.
+     *
+     * Example:
+     * <pre><code>
+     *     List&lt;City&gt; cities = new ArrayList&lt;&gt;();
+     *     cities.add(new City("Toronto", "Ontario"));
+     *     cities.add(new City("Vancouver", "British Columbia"));
+     *     int count = countCities();  // Returns the number of cities in the list
+     * </code></pre>
+     *
+     * @return The number of cities currently stored in the list.
+     */
+    public int countCities() {
+        return 0;
+    }
 }

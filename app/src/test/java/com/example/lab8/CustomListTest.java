@@ -59,7 +59,7 @@ public class CustomListTest {
     }
 
     /**
-     * add two city to empty list
+     * add two cities to empty list
      * check if list has cities
      * delete them and check if it still returns has
      */
@@ -75,5 +75,22 @@ public class CustomListTest {
         assertFalse(list.hasCity(MockCity()));
         list.deleteCity(city);
         assertFalse(list.hasCity(city));
+    }
+    /**
+     * check count for empty list
+     * add cities and then delete them checking the count along the way
+     */
+    @Test
+    void testCountCities() {
+        list = MockCityList();
+        assertEquals(0, list.countCities());
+        list.addCity(MockCity());
+        assertEquals(1, list.countCities());
+        list.addCity( new City("Charlottetown", "Prince Edward Island"));
+        assertEquals(2, list.countCities());
+        list.deleteCity(MockCity());
+        assertEquals(1, list.countCities());
+        list.deleteCity( new City("Charlottetown", "Prince Edward Island"));
+        assertEquals(0, list.countCities());
     }
 }
