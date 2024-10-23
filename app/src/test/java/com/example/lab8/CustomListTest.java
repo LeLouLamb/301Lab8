@@ -60,12 +60,7 @@ public class CustomListTest {
         assertFalse(list.hasCity(city));
     }
 
-    /**
-     * add 2 cities to empty list
-     * ensure list has cities
-     * delete them one by one while checking if list has them
-     */
-    @Test 
+    @Test
     void testDeleteCity() {
         list = MockCityList();
         list.addCity(MockCity());
