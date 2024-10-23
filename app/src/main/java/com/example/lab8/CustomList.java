@@ -139,6 +139,7 @@ public class CustomList extends ArrayAdapter<City> {
      * @throws IllegalArgumentException If the city could not be found and removed from the list.
      */
     public void deleteCity(City city) {
-        if (!cities.remove(city)) throw new IllegalArgumentException("City could not be removed: " + city.getCityName());
+        if (!cities.remove(city))
+            throw new IllegalArgumentException("City could not be removed: " + city.getCityName());
     }
 }
