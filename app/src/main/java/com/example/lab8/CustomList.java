@@ -100,4 +100,45 @@ public class CustomList extends ArrayAdapter<City> {
     public boolean hasCity(City city) {
         return cities.contains(city);
     }
+    /**
+     * Deletes the specified City from the list if it exists, otherwise throws an exception.
+     *
+     * This method attempts to remove the given {@code city} from the internal list of cities.
+     * If the city is successfully removed, the method completes normally. However, if the
+     * specified city is not found in the list, an {@code IllegalArgumentException} is thrown
+     * to indicate that the deletion was not successful.
+     *
+     * <p> The method relies on the {@link java.util.List#remove(Object)} method, which checks
+     * if the list contains the specified city based on the {@link #equals(Object)} method
+     * implementation of the {@code City} class. If the city is found, it is removed from
+     * the list, and the list is updated accordingly.
+     *
+     * <p> Example Usage:
+     * <pre>
+     *     CityManager cityManager = new CityManager();
+     *     City toronto = new City("Toronto", "Ontario");
+     *     cityManager.addCity(toronto);
+     *
+     *     // Attempt to delete Toronto from the list
+     *     cityManager.delete(toronto);  // Successfully removes the city
+     *
+     *     // Attempt to delete a city that is not in the list
+     *     City montreal = new City("Montreal", "Quebec");
+     *     cityManager.delete(montreal);  // Throws IllegalArgumentException
+     * </pre>
+     *
+     * <p> Use Case Scenarios:
+     * <ul>
+     *   <li>Removing cities that are no longer needed from the list.</li>
+     *   <li>Ensuring that a specific city is deleted only if it exists in the list.</li>
+     *   <li>Handling errors by throwing an exception when an invalid deletion is attempted.</li>
+     * </ul>
+     *
+     * @param city The {@code City} object to be removed from the list.
+     *             It must match an existing city in the list based on the {@code equals} method.
+     * @throws IllegalArgumentException If the city could not be found and removed from the list.
+     */
+    public void deleteCity(City city) {
+
+    }
 }
